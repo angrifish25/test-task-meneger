@@ -24,7 +24,7 @@ export default class App extends Component {
         modalVisible: false,
         choosenTask: null
     }
-
+    
     componentWillMount() {
         const { boards, tasks } = this.state
 
@@ -149,7 +149,7 @@ export default class App extends Component {
                     changeTask={this.changeTask} 
                     addTask={this.addTask} 
                     task={choosenTask}/> 
-                    
+
                     : null 
                 }
             </AppBox>

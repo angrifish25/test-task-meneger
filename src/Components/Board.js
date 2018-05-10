@@ -9,7 +9,11 @@ export default class Board extends Component {
     state = {
        warning: false
     }
-
+    sortTasks(a, b) {
+        if (a.timestamp > b.timestamp) return 1
+        else if (a.timestamp < b.timestamp) return 0
+        else return 0
+    }
     onDragEnter = (event) => {
         event.preventDefault();
         const { drag } = this.props
@@ -60,7 +64,7 @@ export default class Board extends Component {
                     <AddButton onClick={addTask}/>
                 </Header>
                 <Body>
-                    {tasks.map((item, i) => 
+                    {tasks.sort(this.sortTasks).map((item, i) => 
                         <Task 
                             key={i} changeNameTask={changeNameTask} 
                             toggleModal={toggleModal} 
