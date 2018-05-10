@@ -60,6 +60,7 @@ export const Textarea = styled.textarea`
     border-radius: 2px;
     border: 1px solid #e1e1e3;
     resize: none;
+    min-height: ${props => props.size ? props.size : '100px'};
     &:focus {
         outline: 0;
     }

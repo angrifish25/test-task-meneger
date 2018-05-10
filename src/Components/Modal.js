@@ -37,7 +37,8 @@ export default class Modal extends Component {
                     <Title > { task ? 'Cange Task' : 'New Task'}</Title>
                     <CloseButton onClick={toggleModal} />
                     <Label for="name">Name:</Label>
-                    <Input name="name"
+                    <Textarea name="name"
+                        size="50px"
                         defaultValue={name} 
                         onChange={(e) => this.setState({ name: e.target.value})}/>
 
