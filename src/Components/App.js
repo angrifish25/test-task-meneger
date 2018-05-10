@@ -59,10 +59,11 @@ export default class App extends Component {
                 oNewTask ? oNewTask 
                 :
                 {
-                nameTask: '', 
-                discription: '',
-                timestamp: Date.now()
-            })
+                    nameTask: '', 
+                    discription: '',
+                    timestamp: Date.now()
+                }
+            )
             self.setState({
                 tasks,
                 hasEmptyTask: true
@@ -141,7 +142,16 @@ export default class App extends Component {
                         )
                     }
                 </BoardsArea>
-                { modalVisible ? <Modal boards={boards} toggleModal={this.toggleModal} changeTask={this.changeTask} addTask={this.addTask} task={choosenTask}/> : null }
+                { modalVisible ? 
+                    <Modal 
+                    boards={boards} 
+                    toggleModal={this.toggleModal} 
+                    changeTask={this.changeTask} 
+                    addTask={this.addTask} 
+                    task={choosenTask}/> 
+                    
+                    : null 
+                }
             </AppBox>
         )
     }

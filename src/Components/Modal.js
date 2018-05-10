@@ -35,17 +35,30 @@ export default class Modal extends Component {
             <ModalWrapper visible>
                 <ModalBox>
                     <Title > { task ? 'Cange Task' : 'New Task'}</Title>
+
                     <Label for="name">Name:</Label>
-                    <Input defaultValue={name} name="name" onChange={(e) => this.setState({ name: e.target.value})}/>
+                    <Input name="name"
+                        defaultValue={name} 
+                        onChange={(e) => this.setState({ name: e.target.value})}/>
+
                     <Label for="discription">Discription:</Label>
-                    <Textarea name="discription" defaultValue={discription} onChange={(e) => this.setState({ discription: e.target.value})}/>
-                    <Select innerRef={x =>  this.select = x } defaultValue={task ? task.board : boards[0].id}>
+                    <Textarea name="discription" 
+                        defaultValue={discription} 
+                        onChange={(e) => this.setState({ discription: e.target.value})}/>
+
+                    <Select innerRef={x =>  this.select = x } 
+                    defaultValue={task ? task.board : boards[0].id}>
+
                     { task ? 
                         boards.filter((item) => checkRule(task.board, item.id)).map((item, i) => <option key={item.id} value={item.id}>{item.name}</option>)
                         :
                         boards.map((item, i) => <option key={item.id} value={item.id}>{item.name}</option>)}
                     </Select>
-                    { (name.length && discription.length) || task  ? <SaveButton onClick={task ? this.onChange : this.onCreat}>Save</SaveButton> : <SaveButton disabled >Save</SaveButton> }
+
+                    { (name.length && discription.length) || task  ? 
+                        <SaveButton onClick={task ? this.onChange : this.onCreat}>Save</SaveButton> 
+                        : 
+                        <SaveButton disabled >Save</SaveButton> }
                 </ModalBox>
                 <Overlay onClick={toggleModal}/>
             </ModalWrapper>

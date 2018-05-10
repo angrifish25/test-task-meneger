@@ -39,11 +39,18 @@ export default class Task extends Component {
     }
     render() {
         const { isFocus } = this.state,
-        { nameTask } = this.props;
+              { nameTask } = this.props;
 
         return (
-            <TaskBox draggable={!!nameTask.length || isFocus} onDragStart={(e) => this.onDragStart(e, this.props.board)} onClick={this.onClickName}>
-                    {!nameTask.length || isFocus ? <InputTask innerRef={x =>  this.input = x } onBlur={this.onBlur}  defaultValue={nameTask} /> : <LabelTask >{nameTask}</LabelTask>}
+            <TaskBox draggable={!!nameTask.length || isFocus} 
+            onDragStart={(e) => this.onDragStart(e, this.props.board)} 
+            onClick={this.onClickName}>
+
+                    {!nameTask.length || isFocus ? 
+                        <InputTask innerRef={x =>  this.input = x } onBlur={this.onBlur}  defaultValue={nameTask} /> 
+                        :
+                        <LabelTask >{nameTask}</LabelTask>}
+                        
                     {nameTask.length ? <RemoveButton onClick={this.removeTask}/>  : null }
             </TaskBox>
         )

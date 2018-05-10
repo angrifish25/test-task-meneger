@@ -48,13 +48,27 @@ export default class Board extends Component {
         { warning } = this.state;
 
         return (
-            <BoardCol warning={warning} onDragLeave={this.onDragLeave} onDragEnd={this.onDragLeave} onDragOver={this.onDragOver} onDragEnter={this.onDragEnter} onDrop={this.onDragDrop}>
+            <BoardCol warning={warning} 
+                onDragLeave={this.onDragLeave} 
+                onDragEnd={this.onDragLeave} 
+                onDragOver={this.onDragOver} 
+                onDragEnter={this.onDragEnter} 
+                onDrop={this.onDragDrop}>
+                
                 <Header>
                     <span>{name}</span>
                     <AddButton onClick={addTask}/>
                 </Header>
                 <Body>
-                    {tasks.map(((item, i) => <Task key={i} changeNameTask={changeNameTask} toggleModal={toggleModal} removeTask={removeTask} board={id} onDrag={drag.onDrag} {...item}/>))}
+                    {tasks.map((item, i) => 
+                        <Task 
+                            key={i} changeNameTask={changeNameTask} 
+                            toggleModal={toggleModal} 
+                            removeTask={removeTask} 
+                            board={id} 
+                            onDrag={drag.onDrag} 
+                            {...item}/>
+                        )}
                 </Body>
             </BoardCol>
         )
