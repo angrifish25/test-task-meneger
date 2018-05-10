@@ -50,7 +50,7 @@ export default class Task extends Component {
                         <InputTask innerRef={x =>  this.input = x } onBlur={this.onBlur}  defaultValue={nameTask} /> 
                         :
                         <LabelTask >{nameTask}</LabelTask>}
-                        
+
                     {nameTask.length ? <RemoveButton onClick={this.removeTask}/>  : null }
             </TaskBox>
         )

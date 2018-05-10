@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ModalWrapper, ModalBox, Overlay, Textarea, Input, Title, Label, Select, SaveButton } from '../Styles/Modal'
+import { ModalWrapper, ModalBox, Overlay, Textarea, Input, Title, Label, Select, SaveButton, CloseButton } from '../Styles/Modal'
 import { checkRule } from '../Constants/Rules';
 
 export default class Modal extends Component {
@@ -35,7 +35,7 @@ export default class Modal extends Component {
             <ModalWrapper visible>
                 <ModalBox>
                     <Title > { task ? 'Cange Task' : 'New Task'}</Title>
-
+                    <CloseButton onClick={toggleModal} />
                     <Label for="name">Name:</Label>
                     <Input name="name"
                         defaultValue={name} 

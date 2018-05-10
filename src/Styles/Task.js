@@ -33,6 +33,7 @@ export const RemoveButton = styled.a`
 export const InputTask = styled.textarea`
     width: 100%;
     font-size: 17px;
+    resize: vertical;
     &:focus {
         outline: 0;
     }

@@ -11,7 +11,8 @@ export const ModalBox = styled.div`
     background: #fff;
 	position: fixed;
 	left: 50%;
-	top: 50%;
+    top: 50%;
+    border-radius: 3px;
 	margin-top: -200px;
 	overflow: hidden;
 	z-index: 9;
@@ -58,11 +59,19 @@ export const Textarea = styled.textarea`
     font-size: 14px;
     border-radius: 2px;
     border: 1px solid #e1e1e3;
+    resize: none;
     &:focus {
         outline: 0;
     }
 `;
-
+export const CloseButton = styled.a`
+    &:before {
+        content: '❌';
+        right: 5px;
+        top: 6px;
+        position: absolute;
+    }
+`;
 export const SaveButton = styled.a`
     text-decoration: none;
     outline: none;
